@@ -1,0 +1,49 @@
+body {
+    background-color: #cccaca;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#timerBox {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: auto;
+    padding: 5px;
+    align-items: center;
+    border-left: solid 2px teal;
+}
+
+#rankingBox {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: auto;
+    padding: 5px;
+    align-items: center;
+    border-right: solid 2px teal;
+}
+
+#quizBody {
+    width: 100%;
+    position: relative;
+    top: 100px;
+    text-align: center;
+}
+
+button {
+    background-color: teal;
+    border-radius: 5px;
+    border-color: lightseagreen;
+    font-weight: bold;
+    margin: 2.5%;
+}
+
+button:hover {
+    background-color:aquamarine;
+    font-size: larger;
+  }
+
+button:focus {
+    background-color:aquamarine;
+    font-size: larger;
+}
