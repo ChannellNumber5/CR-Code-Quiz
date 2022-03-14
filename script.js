@@ -34,7 +34,10 @@ function startQuiz() {
     var question4 = ["Question 4", "Answer1", "Answer2", "Answer3", "Answer4"];
     var question5 = ["Question 5", "Answer1", "Answer2", "Answer3", "Answer4"];
     var question6 = ["Question 6", "Answer1", "Answer2", "Answer3", "Answer4"];
-    h1El.textContent = question1[0];
+    for (var i = 0; i<= 6; i++) {
+        h1El.textContent = question1[0];
+    }
+    
     
 
 }

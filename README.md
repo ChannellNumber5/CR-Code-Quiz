@@ -14,3 +14,6 @@ Make no mistake though... the hardest part was definitely coming up with the que
 
 - (Formatting Buttons when they are Focused vs. Targeted)[https://stackoverflow.com/questions/44263892/how-to-style-a-clicked-button-in-css]
 
+- (Creating Elements in Javascript)[https://www.w3schools.com/jsref/met_document_createelement.asp]
+
+- (Difference Between Const, Var, and Let)[https://www.geeksforgeeks.org/difference-between-var-let-and-const-keywords-in-javascript/]
