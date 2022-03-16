@@ -35,8 +35,9 @@ button {
     border-radius: 5px;
     border-color: lightseagreen;
     font-weight: bold;
-    margin: 2.5%;
+    margin: auto;
     display: block;
+    text-align: center;
 }
 
 button:hover {
