@@ -1,7 +1,7 @@
 var timerDiv = document.querySelector("#timer");
 var rankDiv = document.querySelector("#ranking");
 var h1El = document.querySelector("#headingText");
-var quizContent = document.getElementById("#quizBody");
+var quizBody = document.querySelector("#quizBody");
 var pText = document.querySelector("#pText");
 var leaderBoard;
 var score = 0;
@@ -18,6 +18,7 @@ var button1;
 var button2;
 var button3;
 var button4;
+var question;
 
 var timeLeft = 0;;
 var answer;
@@ -28,8 +29,7 @@ function init() {
     var startQuizButton = document.querySelector("#startQuiz");
     startQuizButton.addEventListener("click", function() {
     createQuestionButtons();
-    startQuizButton.style.display = "none";
-    pText.style.display = "none";
+    quizBody.style.display = "none";
     setTime();
     startQuiz();
     });
@@ -111,25 +111,31 @@ function startQuiz() {
 }
 
 function createQuestionButtons() {
-    var buttonDiv = document.createElement("div");
+    // var buttonDiv = document.createElement("div");
+    question = document.createElement("h1");
+    document.querySelector("#displayQuiz").appendChild(question);
     button1 = document.createElement("button");
-    buttonDiv.appendChild(button1);
+    document.querySelector("#displayQuiz").appendChild(button1);
     button2 = document.createElement("button");
-    buttonDiv.appendChild(button2);
+    document.querySelector("#displayQuiz").appendChild(button2);
     button3 = document.createElement("button");
-    buttonDiv.appendChild(button3);
+    document.querySelector("#displayQuiz").appendChild(button3);
     button4 = document.createElement("button");
-    buttonDiv.appendChild(button4);
-    document.body.appendChild(buttonDiv);
+    document.querySelector("#displayQuiz").appendChild(button4);
+    // document.querySelector("#displayQuiz").appendChild(buttonDiv);
 }
 
 function loadQuestion(num) {
-    currentQuestion = Object.values(quizQuestions)[num];
-    h1El.textContent = currentQuestion[0];
-    button1.textContent = currentQuestion[1];
-    button2.textContent = currentQuestion[2];
-    button3.textContent = currentQuestion[3];
-    button4.textContent = currentQuestion[4];
+    // if (num === quizQuestions.length()) {
+    //     endQuiz();
+    // } else {
+        currentQuestion = Object.values(quizQuestions)[num];
+        question.textContent = currentQuestion[0];
+        button1.textContent = currentQuestion[1];
+        button2.textContent = currentQuestion[2];
+        button3.textContent = currentQuestion[3];
+        button4.textContent = currentQuestion[4];
+    // }
 }
 
 // function createButtons (totalButtons) {
@@ -147,7 +153,7 @@ function countdown() {
         } else {
             timerDiv.textContent = " Time's Up!";
             clearInterval(timeInterval);
-            endGame();
+            endQuiz();
             return;
         }
         timeLeft--;
@@ -178,7 +184,7 @@ function loadScore() {
 }
 
 
-function endGame() {
+function endQuiz() {
 let userName = prompt("Input your initials for our leaderboard!");
 if (userName === " ") {
     userName = prompt("Input your initials for our leaderboard!");

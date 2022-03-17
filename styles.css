@@ -25,8 +25,11 @@ body {
 
 #quizBody {
     width: 100%;
-    position: relative;
-    top: 100px;
+    text-align: center;
+}
+
+#displayQuz {
+    width: 100%;
     text-align: center;
 }
 
