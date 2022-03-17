@@ -17,3 +17,5 @@ Make no mistake though... the hardest part was definitely coming up with the que
 - (Creating Elements in Javascript)[https://www.w3schools.com/jsref/met_document_createelement.asp]
 
 - (Difference Between Const, Var, and Let)[https://www.geeksforgeeks.org/difference-between-var-let-and-const-keywords-in-javascript/]
+
+- (Appending to Body)[https://stackoverflow.com/questions/50186596/how-to-append-multiple-elements-to-a-div]

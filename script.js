@@ -111,14 +111,16 @@ function startQuiz() {
 }
 
 function createQuestionButtons() {
+    var buttonDiv = document.createElement("div");
     button1 = document.createElement("button");
-    document.getElementById("#quizBody").appendChild(button1);
+    buttonDiv.appendChild(button1);
     button2 = document.createElement("button");
-    document.getElementById("#quizBody").appendChild(button2);
+    buttonDiv.appendChild(button2);
     button3 = document.createElement("button");
-    document.getElementById("#quizBody").appendChild(button3);
+    buttonDiv.appendChild(button3);
     button4 = document.createElement("button");
-    document.getElementById("#quizBody").appendChild(button4);
+    buttonDiv.appendChild(button4);
+    document.body.appendChild(buttonDiv);
 }
 
 function loadQuestion(num) {
@@ -190,9 +192,9 @@ if (userName === " ") {
         startQuiz();
         
     } else {
-        var alert = alert("Thank you for playing!");
+        alert("Thank you for playing!");
     }
-
+    return;
 }  
 }
 
