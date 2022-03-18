@@ -28,9 +28,16 @@ body {
     text-align: center;
 }
 
-#displayQuz {
+#quizDisplay {
     width: 100%;
     text-align: center;
+    padding: 10%;
+}
+
+#quizDisplay button {
+    text-align: left;
+    width: 50%;
+    margin: 0.5% 10% 0.5% 20%;
 }
 
 button {
@@ -48,8 +55,3 @@ button:hover {
     background-color:aquamarine;
     font-size: larger;
   }
-
-button:focus {
-    background-color:aquamarine;
-    font-size: larger;
-}
