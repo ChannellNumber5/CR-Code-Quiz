@@ -29,7 +29,8 @@ body {
 }
 
 #quizDisplay {
-    width: 100%;
+    width: 70%;
+    margin: auto;
     text-align: center;
     padding: 10%;
 }
@@ -37,7 +38,7 @@ body {
 #quizDisplay button {
     text-align: left;
     width: 50%;
-    margin: 0.5% 10% 0.5% 20%;
+    margin: .5% 10% .5% 25%;
 }
 
 button {

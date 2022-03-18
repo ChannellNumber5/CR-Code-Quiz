@@ -5,11 +5,11 @@ var pText = document.querySelector("#pText");
 var scoreList = document.querySelector("#ranking");
 var leaderBoard = [];
 
-
+// Object where each property is a quiz question and it's answers stored in an array
 var quizQuestions = {
     question1: ["What is the difference between 'let', 'var' and 'const'?", "1 - Nothing, they are all used for declaring variables", "2 - var declares a variable that can be used throughout your JS file (following local and global rules), while let and const can only be used in the block in which they are declared and the value of const cannot be changed", "3 - Var is for a variable, let is for a letter and const is for a constant", "4 - Options 2 and 3", "2 - var declares a variable that can be used throughout your JS file (following local and global rules), while let and const can only be used in the block in which they are declared and the value of const cannot be changed"],
     question2: ["What method is used to turn objects into strings to be stored in localStorage?", "1- .Stringles()", "2- .turnToString", "3- .stringCheeseMe", "4- JSON.stringify()", "4- JSON.stringify()"],
-    question3: ["What code should be inserted here .document.querySelector(__) to select the class 'fancy'?", "1- '.fancy'", "2- '#fancy'", '3- "fancy"', "4- '$fancy'", "1- '.fancy'"],
+    question3: ["What code should be inserted in the following blank to select the class 'fancy'? .document.querySelector(____)?", "1- '.fancy'", "2- '#fancy'", '3- "fancy"', "4- '$fancy'", "1- '.fancy'"],
     question4: ["What is one of the function that is offered by the Web API to run a timer on our webpage?", "1- setTime()", "2- runTime()", "3- setInterval()", "4- SetInterval()", "3- setInterval()"],
     question5: ["What method should be used to assign this element <p id='myParagraph'></p> to the variable 'para1'?", "1- var para = document.querySelector('#myParagraph')", "2- var para = document.getElementByID('myParagraph')", "3- var para  = document.get(#myParagraph)", "4- Both Options 1 and 2", "4- Both Options 1 and 2"],
     question6: ["If I want a function to iterate a certain number of times, what sort of loop should I use?", "1- A Do-While Loop", "2- An Iterating Loop", "3- A Wait-For Loop", "4- A for loop", "4- A for loop"]
@@ -27,6 +27,9 @@ var answer;
 var questionCounter = 0;
 var currentQuestion;
 var score = 0;
+var eraseButton;
+
+// All of the above variables were found to be needed globally. Goal of refactor would be to decrease number of  global variables
 
 function init() {
     var startQuizButton = document.querySelector("#startQuiz");
@@ -154,14 +157,22 @@ function countdown() {
 }
 
 function setTime () {
-    let userInput = prompt("Please select Difficulty Level", "easy, medium, or hard");
-    let difLvl = userInput.toUpperCase();
-     if (difLvl === "HARD") {
-        timeLeft = 45;
-    } else if (difLvl === "MEDIUM") {
-        timeLeft = 60;
+    let userInput = prompt("Please Input Desired Difficulty Level", "easy, medium, or hard");
+    if (userInput === null) {
+        setTime();
     } else {
-        timeLeft = 90;
+        let difLvl = userInput.toUpperCase();
+        console.log(difLvl);
+        if (difLvl === "HARD") {
+            timeLeft = 45;
+        } else if (difLvl === "MEDIUM") {
+            timeLeft = 60;
+        } else if (difLvl === "EASY") {
+            timeLeft = 90;
+        } else {
+            alert("Please Input Either easy, medium or hard");
+            setTime();
+        }
     }
 }
 //Will use random number generator function in future to add randomizing quiz questions so that the same order isn't used each time.
@@ -177,11 +188,11 @@ function endQuiz() {
     scoreDiv.setAttribute("style", "margin: auto; text-align:center; padding: 10%");
     var endText = document.createElement("h2");
     if (score > 1) {
-        endText.textContent = "You got " + score + " questions correct!<br>Enter your initials for our leaderboard!";
+        endText.innerHTML = "You got " + score + " questions correct! </br> Enter your initials for our leaderboard!";
     } else if (score === 1) {
-        endText.textContent = "You got " + score + " questions correct!<br>Enter your initials for our leaderboard!";
+        endText.innerHTML = "You got " + score + " question correct!</br>Enter your initials for our leaderboard!";
     } else {    
-        endText.textContent = "You got " + score + " questions correct!<br>Enter your initials for our leaderboard!";
+        endText.innerHTML = "You got " + score + " questions correct!</br>Enter your initials for our leaderboard!";
     }
     scoreDiv.appendChild(endText);
     var scoreForm = document.createElement("form");
@@ -196,18 +207,24 @@ function endQuiz() {
     submitButton.addEventListener("click", function(event){
         event.preventDefault();
         let userName = initialInput.value.trim();
-        if (userName.value === " " || userName.value === "") {
-            userName = prompt("Please Input your initials for our leaderboard!");
+        if (userName === " " || userName === "") {
+            userName = alert("Please Input your initials for our leaderboard!");
         } else {
+            initialInput.value =  " ";
             var currentUserScore = userName.concat(": ", score);
             leaderBoard.push(currentUserScore);
             localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));
+            var rankItem = document.createElement("li");
+            rankItem.textContent = currentUserScore
+            rankList.appendChild(rankItem);
+            document.querySelector("#rankingList").style.visibility = "visible";
             var playAgain = confirm("Would you like to take the quiz again? Hit 'Ok' to play or 'cancel' to end");
             if (playAgain) {
                 location.reload();
             } else {
                 alert("Thank you for playing!");
-                loadScore();
+                scoreDiv.style.visibility="hidden";
+                eraseButton.style.visibility="visible";
             }
             return;
         }  
@@ -240,6 +257,18 @@ function displayScores() {
      })
 }
 
+function clearStorage () {
+    eraseButton = document.createElement("button");
+    eraseButton.textContent = "Clear localStorage";
+    document.body.appendChild(eraseButton);
+    eraseButton.style.visibility="hidden";
+    eraseButton.addEventListener("click", function(){
+        leaderBoard = [];
+        localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));
+    })
+}
+
 init();
 loadScore();
 displayScores();
+clearStorage();
