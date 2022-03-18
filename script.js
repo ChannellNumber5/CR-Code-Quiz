@@ -126,7 +126,8 @@ function createQuestionButtons() {
 }
 
 function loadQuestion(num) {
-    if (num === quizQuestions.key().length()) {
+    let quiz = Object.keys(quizQuestions);
+    if (num === quiz.length) {
         endQuiz();
     } else {
         currentQuestion = Object.values(quizQuestions)[num];
@@ -135,7 +136,7 @@ function loadQuestion(num) {
         button2.textContent = currentQuestion[2];
         button3.textContent = currentQuestion[3];
         button4.textContent = currentQuestion[4];
-    // }
+    }
 }
 
 // function createButtons (totalButtons) {
@@ -193,9 +194,10 @@ if (userName === " ") {
         questionCounter = 0;
         setTime();
         startQuiz();
-        
+        loadScore();
     } else {
         alert("Thank you for playing!");
+        loadScore();
     }
     return;
 }  
@@ -203,11 +205,12 @@ if (userName === " ") {
 
 function loadScore() {
 leaderBoard = JSON.parse(localStorage.getItem("leaderBoard"));
-var displayLeaderBoard = leaderBoard.order();
-for (var i=0; i < displayLeaderBoard.length(); i++) {
-    
+var displayLeaderBoard = leaderBoard.sort();
+for (var i=0; i < displayLeaderBoard.length; i++) {
+    var rankItem = document.createElement("li");
+    rankItem.textContent = displayLeaderBoard[i];
+    rankList.appendChild(rankItem);
 }
 }
 
 init();
-
