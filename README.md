@@ -13,32 +13,32 @@ Make no mistake though... the hardest part was definitely coming up with the que
 
 ## Here are some resources I used/referenced in making this application:
 
-- (setInterval Function)[https://www.w3schools.com/jsref/met_win_setinterval.asp]
+- [setInterval Function](https://www.w3schools.com/jsref/met_win_setinterval.asp)
 
-- (CSS Layout)[https://www.w3schools.com/css/css_align.asp]
+- [CSS Layout](https://www.w3schools.com/css/css_align.asp)
 
-- (Formatting Buttons when they are Focused vs. Targeted)[https://stackoverflow.com/questions/44263892/how-to-style-a-clicked-button-in-css]
+- [Formatting Buttons when they are Focused vs. Targeted](https://stackoverflow.com/questions/44263892/how-to-style-a-clicked-button-in-css)
 
-- (Creating Elements in Javascript)[https://www.w3schools.com/jsref/met_document_createelement.asp]
+- [Creating Elements in Javascript](https://www.w3schools.com/jsref/met_document_createelement.asp)
 
-- (Difference Between Const, Var, and Let)[https://www.geeksforgeeks.org/difference-between-var-let-and-const-keywords-in-javascript/]
+- [Difference Between Const, Var, and Let](https://www.geeksforgeeks.org/difference-between-var-let-and-const-keywords-in-javascript/)
 
-- (Appending to Body)[https://stackoverflow.com/questions/50186596/how-to-append-multiple-elements-to-a-div]
+- [Appending to Body](https://stackoverflow.com/questions/50186596/how-to-append-multiple-elements-to-a-div)
 
-- (Accessing the Keys of an Object in JS)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys]
+- [Accessing the Keys of an Object in JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
 
-- (Sorting an Array Alphabetically)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort]
+- [Sorting an Array Alphabetically](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
 
-- (Pushing New Elements into an Array)[https://www.w3schools.com/jsref/jsref_push.asp]
+- [Pushing New Elements into an Array](https://www.w3schools.com/jsref/jsref_push.asp)
 
-- (Concatenating Strings)[https://www.w3schools.com/jsref/jsref_concat_string.asp]
+- [Concatenating Strings](https://www.w3schools.com/jsref/jsref_concat_string.asp)
 
-- (Changing Style in the DOM)[https://www.w3schools.com/js/js_htmldom_css.asp]
+- [Changing Style in the DOM](https://www.w3schools.com/js/js_htmldom_css.asp)
 
-- (Displaying and Hiding Elements)[https://www.w3schools.com/js/tryit.asp?filename=tryjs_visibility]
+- [Displaying and Hiding Elements](https://www.w3schools.com/js/tryit.asp?filename=tryjs_visibility)
 
-- (Using setAttribute to define styles in Javascript)[https://www.techiedelight.com/define-multiple-css-attributes-javascript/]
+- [Using setAttribute to define styles in Javascript](https://www.techiedelight.com/define-multiple-css-attributes-javascript/)
 
-- (Using .innerHtml)[https://sebhastian.com/new-line-javascript/#:~:text=If%20you%20want%20to%20add,which%20stands%20for%20new%20line.]
+- [Using .innerHtml](https://sebhastian.com/new-line-javascript/#:~:text=If%20you%20want%20to%20add,which%20stands%20for%20new%20line.)
 
-- (Clearing Input Field in Form Input Box)[https://reactgo.com/clear-input-value-javascript/];
+- [Clearing Input Field in Form Input Box](https://reactgo.com/clear-input-value-javascript/)
