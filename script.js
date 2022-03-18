@@ -235,7 +235,7 @@ function endQuiz() {
 
 function loadScore() {
 leaderBoard = JSON.parse(localStorage.getItem("leaderBoard"));
-if (leaderBoard === []) {
+if (leaderBoard === null) {
     return;
 } else {
     var displayLeaderBoard = leaderBoard.sort();
