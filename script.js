@@ -234,10 +234,8 @@ function endQuiz() {
 }
 
 function loadScore() {
-leaderBoard = JSON.parse(localStorage.getItem("leaderBoard"));
-if (leaderBoard === null) {
-    return;
-} else {
+    localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));  
+    leaderBoard = JSON.parse(localStorage.getItem("leaderBoard"));
     var displayLeaderBoard = leaderBoard.sort();
     for (var i=0; i < displayLeaderBoard.length; i++) {
         var rankItem = document.createElement("li");
@@ -245,7 +243,7 @@ if (leaderBoard === null) {
         rankList.appendChild(rankItem);
     }
     document.querySelector("#rankingList").style.visibility = "hidden";
-    }
+
 }
 
 function displayScores() {
