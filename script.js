@@ -212,6 +212,7 @@ function endQuiz() {
         } else {
             initialInput.value =  " ";
             var currentUserScore = userName.concat(": ", score);
+            console.log(leaderBoard);
             leaderBoard.push(currentUserScore);
             localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));
             var rankItem = document.createElement("li");
@@ -234,13 +235,17 @@ function endQuiz() {
 
 function loadScore() {
 leaderBoard = JSON.parse(localStorage.getItem("leaderBoard"));
-var displayLeaderBoard = leaderBoard.sort();
-for (var i=0; i < displayLeaderBoard.length; i++) {
-    var rankItem = document.createElement("li");
-    rankItem.textContent = displayLeaderBoard[i];
-    rankList.appendChild(rankItem);
-}
-document.querySelector("#rankingList").style.visibility = "hidden";
+if (leaderBoard === []) {
+    return;
+} else {
+    var displayLeaderBoard = leaderBoard.sort();
+    for (var i=0; i < displayLeaderBoard.length; i++) {
+        var rankItem = document.createElement("li");
+        rankItem.textContent = displayLeaderBoard[i];
+        rankList.appendChild(rankItem);
+    }
+    document.querySelector("#rankingList").style.visibility = "hidden";
+    }
 }
 
 function displayScores() {
