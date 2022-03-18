@@ -1,9 +1,9 @@
 var timerDiv = document.querySelector("#timer");
-var rankDiv = document.querySelector("#ranking");
+var rankList = document.querySelector("#rankingList");
 var h1El = document.querySelector("#headingText");
 var quizBody = document.querySelector("#quizBody");
 var pText = document.querySelector("#pText");
-var leaderBoard;
+var leaderBoard = [];
 var score = 0;
 
 var quizQuestions = {
@@ -126,9 +126,9 @@ function createQuestionButtons() {
 }
 
 function loadQuestion(num) {
-    // if (num === quizQuestions.length()) {
-    //     endQuiz();
-    // } else {
+    if (num === quizQuestions.key().length()) {
+        endQuiz();
+    } else {
         currentQuestion = Object.values(quizQuestions)[num];
         question.textContent = currentQuestion[0];
         button1.textContent = currentQuestion[1];
@@ -179,17 +179,14 @@ function randomNumber (min,max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function loadScore() {
-
-}
-
-
 function endQuiz() {
 let userName = prompt("Input your initials for our leaderboard!");
 if (userName === " ") {
     userName = prompt("Input your initials for our leaderboard!");
 } else {
-    var userScore = [userName, score];
+    var currentUserScore = userName.concat(": ", score);
+    leaderBoard.push(currentUserScore);
+    localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));
     var playAgain = confirm("Would you like to take the quiz again? Hit 'Ok' to play or 'cancel' to end");
     if (playAgain) {
         score = 0;
@@ -202,6 +199,14 @@ if (userName === " ") {
     }
     return;
 }  
+}
+
+function loadScore() {
+leaderBoard = JSON.parse(localStorage.getItem("leaderBoard"));
+var displayLeaderBoard = leaderBoard.order();
+for (var i=0; i < displayLeaderBoard.length(); i++) {
+    
+}
 }
 
 init();

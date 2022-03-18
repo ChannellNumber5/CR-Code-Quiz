@@ -41,6 +41,7 @@ button {
     margin: auto;
     display: block;
     text-align: center;
+    line-height: 1.5;
 }
 
 button:hover {
