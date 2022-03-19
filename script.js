@@ -31,6 +31,7 @@ var eraseButton;
 
 // All of the above variables were found to be needed globally. Goal of refactor would be to decrease number of  global variables
 
+// init() listens for click of start button and starts quiz
 function init() {
     var startQuizButton = document.querySelector("#startQuiz");
     startQuizButton.addEventListener("click", function() {
@@ -42,6 +43,7 @@ function init() {
 
 }
 
+// checks to see if answer is right or wrong by comparing answer chosen with correct answer stored at end of array
 function startQuiz() {
     countdown();
     loadQuestion(questionCounter);
@@ -104,6 +106,7 @@ function startQuiz() {
    
 }
 
+//Creates question buttons in DOM, along with h1 tag for question and and h2 to indicate if question is correct or not
 function createQuestionButtons() {
     question = document.createElement("h1");
     document.querySelector("#quizDisplay").appendChild(question);
@@ -119,6 +122,7 @@ function createQuestionButtons() {
     document.querySelector("#quizDisplay").appendChild(feedback);
 }
 
+//loads question and answers into the h1 tag and answer buttons
 function loadQuestion(num) {
     let quiz = Object.keys(quizQuestions);
     if (num === quiz.length) {
@@ -134,6 +138,7 @@ function loadQuestion(num) {
     }
 }
 
+//timer function to run as user is taking quiz
 function countdown() {
     var timeInterval = setInterval(function() {
         if (timeLeft > 1) {
@@ -156,6 +161,7 @@ function countdown() {
     }, 1000);
 }
 
+// prompts user to select their difficulty level, which will determine how long they have to complete quiz 
 function setTime () {
     let userInput = prompt("Please Input Desired Difficulty Level", "easy, medium, or hard");
     if (userInput === null) {
@@ -175,6 +181,7 @@ function setTime () {
         }
     }
 }
+
 //Will use random number generator function in future to add randomizing quiz questions so that the same order isn't used each time.
 // function randomNumber (min,max) {
 //     min = Math.ceil(min);
@@ -182,6 +189,7 @@ function setTime () {
 //     return Math.floor(Math.random() * (max - min + 1) + min);
 // }
 
+// function to end the quiz, called once time is up or they've answered the last question. Will show score and store it into localStorage
 function endQuiz() {
     document.querySelector("#quizDisplay").style.display = "none";
     var scoreDiv = document.createElement("div");
@@ -233,10 +241,15 @@ function endQuiz() {
 
 }
 
+//function to load and pull score to and from localStorage
 function loadScore() {
-    localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));  
+    if (leaderboard === []) {
+    localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));
+    } else {
     leaderBoard = JSON.parse(localStorage.getItem("leaderBoard"));
     var displayLeaderBoard = leaderBoard.sort();
+    }
+
     for (var i=0; i < displayLeaderBoard.length; i++) {
         var rankItem = document.createElement("li");
         rankItem.textContent = displayLeaderBoard[i];
@@ -246,6 +259,7 @@ function loadScore() {
 
 }
 
+// function to display scores when text is clicked and to hide them again when text is clicked
 function displayScores() {
     scoreList.addEventListener("click", function() {
         if (rankingList.getAttribute("data-state") === "hidden") {
@@ -260,6 +274,7 @@ function displayScores() {
      })
 }
 
+// function to add button to page to clear localStorage
 function clearStorage () {
     eraseButton = document.createElement("button");
     eraseButton.textContent = "Clear localStorage";
