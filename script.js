@@ -3,7 +3,7 @@ var rankList = document.querySelector("#rankingList");
 var quizBody = document.querySelector("#quizBody");
 var pText = document.querySelector("#pText");
 var scoreList = document.querySelector("#ranking");
-var leaderBoard = [];
+var leaderBoard;
 
 // Object where each property is a quiz question and it's answers stored in an array
 var quizQuestions = {
@@ -243,8 +243,8 @@ function endQuiz() {
 
 //function to load and pull score to and from localStorage
 function loadScore() {
-    if (leaderboard === []) {
-    localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));
+    if (leaderBoard === null) {
+        return;
     } else {
     leaderBoard = JSON.parse(localStorage.getItem("leaderBoard"));
     var displayLeaderBoard = leaderBoard.sort();
