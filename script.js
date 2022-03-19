@@ -3,7 +3,7 @@ var rankList = document.querySelector("#rankingList");
 var quizBody = document.querySelector("#quizBody");
 var pText = document.querySelector("#pText");
 var scoreList = document.querySelector("#ranking");
-var leaderBoard;
+var leaderBoard = [];
 
 // Object where each property is a quiz question and it's answers stored in an array
 var quizQuestions = {
@@ -224,7 +224,7 @@ function endQuiz() {
             leaderBoard.push(currentUserScore);
             localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));
             var rankItem = document.createElement("li");
-            rankItem.textContent = currentUserScore
+            rankItem.textContent = currentUserScore;
             rankList.appendChild(rankItem);
             document.querySelector("#rankingList").style.visibility = "visible";
             var playAgain = confirm("Would you like to take the quiz again? Hit 'Ok' to play or 'cancel' to end");
@@ -243,20 +243,21 @@ function endQuiz() {
 
 //function to load and pull score to and from localStorage
 function loadScore() {
-    if (leaderBoard === null) {
-        return;
-    } else {
     leaderBoard = JSON.parse(localStorage.getItem("leaderBoard"));
-    var displayLeaderBoard = leaderBoard.sort();
-    }
+    console.log(leaderBoard);
+    if (leaderBoard === null) {
+        leaderBoard = [];
+        console.log(leaderBoard);
+    } else {
+        var displayLeaderBoard = leaderBoard.sort();
 
-    for (var i=0; i < displayLeaderBoard.length; i++) {
-        var rankItem = document.createElement("li");
-        rankItem.textContent = displayLeaderBoard[i];
-        rankList.appendChild(rankItem);
+        for (var i=0; i < displayLeaderBoard.length; i++) {
+            var rankItem = document.createElement("li");
+            rankItem.textContent = displayLeaderBoard[i];
+            rankList.appendChild(rankItem);
+        }
+        document.querySelector("#rankingList").style.visibility = "hidden";
     }
-    document.querySelector("#rankingList").style.visibility = "hidden";
-
 }
 
 // function to display scores when text is clicked and to hide them again when text is clicked
