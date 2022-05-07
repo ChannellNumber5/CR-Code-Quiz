@@ -2,14 +2,20 @@
 
 This application is designed to be a quick, timed way for you to challenge your basic coding skills. The quiz is comprised of 6 multiple choice coding questions that you must answer correctly within the timeframe you've selected. You can choose between Easy mode - 90 seconds to complete the quiz, Medium mode - 60 seconds to complete it, or Hard - 45 seconds to complete it. Once the time runs out, you'll be able to see your score and ranking on the left hand leaderboard!
 
+Here is the link to the Github [repo](https://github.com/ChannellNumber5/CR-Code-Quiz).
+
+And here's a link to the deployed [page](https://channellnumber5.github.io/CR-Code-Quiz/).
+
 ## Here's a peek at what the quiz page looks like!
-![Page Screenshot](/CodeQuiz.png)
+![Page Screenshot](./images/CodeQuiz.png)
 
 This quiz was mostly coded in Javascript and it was fairly difficult to code it in a way that was responsive to the user's quiz selections while making sure the correct text was shown on the screen. Choosing which text to display when and how, whether it was manipulating the DOM via Javascript or having it already laid out in HTML, was also difficult to think through and code.
 
 Also, this application required a lot of the skills learned previously when coding in HTML and CSS and forced a better understanding of how elements are laid out in HTML and then how CSS styles those elements. It was infinitely easier to focus on styling and page layout, when you did not have to worry about the javascript. I found it incredibly difficult though to figure out which elements would be created in the DOM and then to ensure that they were styled correctly so that the overall user interface was pleasant. It would not be a very great quiz, if it functioned properly but was a complete eyesore.
 
 Make no mistake though... the hardest part was definitely coming up with the questions (;
+
+![Page Screenshot 2](./images/Code_Quiz_ScreenShot2.jpeg)
 
 ## Here are some resources I used/referenced in making this application:
 
