@@ -17,6 +17,20 @@ Make no mistake though... the hardest part was definitely coming up with the que
 
 ![Page Screenshot 2](./images/Code_Quiz_ScreenShot2.jpeg)
 
+## License
+
+This project is licensed under the MIT license.
+
+[MIT License](https://opensource.org/licenses/MIT)
+
+## Credits/Contact Info
+
+Christina Robinson
+
+Email: [CLRCoding@gmail.com](mailto:CLRCoding@gmail.com)
+
+Github: [ChannellNumber5](https://github.com/ChannellNumber5)
+
 ## Here are some resources I used/referenced in making this application:
 
 - [setInterval Function](https://www.w3schools.com/jsref/met_win_setinterval.asp)
